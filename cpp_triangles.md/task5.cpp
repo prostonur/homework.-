@@ -3,7 +3,7 @@
 
  int main() {
      int n;
-     std::cout << "enter n: ";
+     std::cout << "Enter height of rhombus: ";
      std::cin >> n;
      int tabs = n - 1;
      for (int i = 1; i <= n; ++i) {
