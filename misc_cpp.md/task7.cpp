@@ -5,7 +5,6 @@
 
 int main() {
     int r;
-    std::set<std::pair<int, int>> st;
     std::cout << "enter r: ";
     try {
         std::cin >> r;
@@ -15,10 +14,12 @@ int main() {
         std::cerr << ex.what();
         exit(1);
     }
-    int count = 0;
-    for (int x = -r; x <= r; ++x)
-        for (int y = -r; y <= r; ++y)
-            if (pow(x,2) + pow(y, 2) <= pow(r, 2))
-                st.emplace(std::make_pair(x,y));
-    std::cout << "number of dots: " << st.size() << '\n';
+    long long int count = 0;
+    for (int x = 0; x <= 2 * r; ++x) {
+        for (int y = 0; y <= 2 * r; ++y) {
+            if (((x - r) * (x - r) + (y - r) * (y - r)) <= r * r)
+                count++;
+        }
+    }
+    std::cout << "number of dots: " << count << '\n';
 }
