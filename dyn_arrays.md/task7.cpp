@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cmath>
 void shiftArray(const int arr[], int n, int k) {
     int k_ = k % n;
     int tmp_k_arr[k_];
@@ -24,6 +24,31 @@ void shiftArray(const int arr[], int n, int k) {
         }
     }
 }
+void shiftArray_advanced(int arr[], int n, int k) {
+    int k_ = k % n;
+    if (k_ < n/2) {
+        for (int i = 0; i < k_; ++i) {
+            std::swap(arr[i],arr[k_ + i]);
+        }
+    } else {
+        for (int i = 0; i < n - k_; ++i) {
+            std::swap(arr[i], arr[n - k_ + i]);
+        }
+    }
+    for (int i = n - std::abs(n - k_ - k_); i < n; ++i) {
+        int temp_k;
+        if (k_ > n/2)
+            temp_k = n - k_;
+        else
+            temp_k  = k_;
+        int j = i - 1;
+        while (temp_k) {
+            std::swap(arr[j], arr[j + 1]);
+            temp_k--;
+            j--;
+        }
+    }
+}
 int main() {
     int n, k;
     std::cout << "enter n, k: ";
@@ -31,6 +56,12 @@ int main() {
     int* arr = new int[n];
     for (int i = 0; i < n; ++i)
         arr[i] = i;
-    shiftArray(arr, n, k);
+    for (int i = 0; i < n; ++i)
+        std::cout << arr[i] << ' ';
+    std::cout << '\n';
+    //shiftArray(arr, n, k);
+    shiftArray_advanced(arr,n,k);
+    for (int i = 0; i < n; ++i)
+        std::cout << arr[i] << ' ';
     delete[] arr;
 }
