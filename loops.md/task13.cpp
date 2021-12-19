@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 char letter(int num) {
@@ -16,7 +17,7 @@ char letter(int num) {
     else
         return 'I';
 }
-//fix later
+
 int main() {
     int max_deg = 1000;
     int num;
@@ -51,6 +52,5 @@ int main() {
             max_deg /= oper;
             (oper == 5) ? (oper = 2) : (oper = 5);
         }
-        //std::cout << "num, max_deg, oper: " << num << ' ' << max_deg << ' ' << oper << '\n';
     }
 }
