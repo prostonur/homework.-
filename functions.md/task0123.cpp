@@ -233,28 +233,4 @@ double** reverse_matrix(double** matrix, size_t size) {
     delete_matrix(prod3,size,size);
     return result;
 }
-void up_treug(double** matrix, double** sing, size_t size) {
-    for (size_t i = 0; i < size; ++i) {
-        for (size_t j = i + 1; j < size; ++j) {
-            if (matrix[i][j] == 0) continue;
-            for (size_t z = 0; z < size; ++z) {
-                if (z >= j)
-                    matrix[j][z] *= matrix[i][j];
-                sing[j][z] *= matrix[i][j];
-                if (z >= j)
-                    matrix[i][z] -= matrix[j][z];
-                sing[i][z] -= matrix[j][z];
-                if (j == z) {
-                    for (int k = 0; k < size; ++k)
-                        sing[z][k] /= matrix[j][z];
-                    matrix[j][z] = 1;
-                }
-                std::cout << "matrix: \n";
-                print_matrix(matrix,size,size);
-                std::cout << "sign: \n";
-                print_matrix(sing,size,size);
-            }
-        }
 
-    }
-}
