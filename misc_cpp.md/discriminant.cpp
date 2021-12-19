@@ -1,31 +1,19 @@
 #include <iostream>
-#include<cmath>
+#include <cmath>
 
-int main()
-{
-    double a, b, c, d, x1, x2;
-    std::cout << "Enter a\n";
-    std::cin >> a;
-    std::cout << "Enter b\n";
-    std::cin >> b;
-    std::cout<< "Enter c\n";
-    std::cin >> c;
-    d = (b * b) - (4 * a * c);
-    if (d > 0)
-    {
-        x1 = (-b) + sqrt(d) / (2 * a);
-        x2 = (-b) - sqrt(d) / (2 * a);
-        std::cout << "x1=" << x1 << std::endl;
-        std::cout << "x2=" << x2 << std::endl;
+int main() {
+    double a, b, c;
+    std::cout << "enter a, b, c: ";
+    std::cin >> a >> b >> c;
+    if (a != 0) {
+        double D = sqrt(pow(b, 2) - 4 * a * c);
+        if (D == 0) {
+            std::cout << "solution: " << -b / 2 * a << '\n';
+        } else if (D > 0) {
+            std::cout << "solution: " << (-b + D) / 2 * a << ',' << (-b - D) / 2 * a << '\n';
+        } else
+            std::cout << "no solution in the set of real numbers\n";
+    } else {
+        std::cout << -c / b << '\n';
     }
-    if (d == 0)
-    {
-        x1 = (-b) / (2 * a);
-    }
-    if(d<0)
-    {
-        std::cout << "No answer" << std::endl;
-    }
-    
-    return 0;
 }
