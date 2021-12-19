@@ -157,33 +157,6 @@ void transfom_matrix(double** matrix, double** sing, size_t size, size_t start) 
         print_matrix(sing,size,size);
     }
 }
-
-double** create_single_matrix(size_t size) {
-    double** matrix = create_matrix(size,size);
-    for (size_t i = 0; i < size; ++i) {
-        for (size_t j = 0; j < size; ++j) {
-            if (i == j) matrix[i][j] = 1;
-            else matrix[i][j] = 0;
-        }
-    }
-    return matrix;
-}
-
-void treug(double** matrix, double** sing, size_t size) {
-    for (size_t z = 0; z < size; ++z) {
-        transfom_matrix(matrix,sing,size,z);
-        for (size_t i = z + 1; i < size; ++i) {
-            for (size_t j = z; j < size; ++j) {
-                matrix[i][j] -= matrix[z][j];
-                sing[i][j] -= matrix[z][j];
-            }
-        }
-        std::cout << "matrix: \n";
-        print_matrix(matrix,size,size);
-        std::cout << "sing: \n";
-        print_matrix(sing,size,size);
-    }
-}
 void fix_matrix(double** matrix, size_t size,size_t start) {
     bool check = true;
     int count = 1;
