@@ -1,25 +1,15 @@
 #include <iostream>
-#include <cmath>
-#include <set>
-
-
 int main() {
-    int r;
-    std::cout << "enter r: ";
-    try {
-        std::cin >> r;
-        if (r > pow(10, 6))
-            throw std::out_of_range("out of range\n");
-    } catch (const std::exception& ex) {
-        std::cerr << ex.what();
-        exit(1);
-    }
-    long long int count = 0;
-    for (int x = 0; x <= 2 * r; ++x) {
-        for (int y = 0; y <= 2 * r; ++y) {
-            if (((x - r) * (x - r) + (y - r) * (y - r)) <= r * r)
-                count++;
+    double R;
+    std::cin >> R;
+    long long count = -1;
+    for (int y = 0; y <= R; ++y) {
+        for (int x = 0; x <= R; ++x) {
+            if ((x * x + y * y) <= R * R) {
+                count += 1;
+            }
         }
     }
-    std::cout << "number of dots: " << count << '\n';
+    std::cout << 1 + count * 4 - 4 * R;
+    return 0;
 }
