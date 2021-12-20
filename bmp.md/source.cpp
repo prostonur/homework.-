@@ -49,16 +49,6 @@ void testGrayworld()
     deleteRgbImg(img);
 }
 
-//Box filter example
-//void testBoxFilter()
-//{
-//    RgbImg img = readRgbImg("data\\kidsnoise.bmp");
-//    RgbImg filtered = convolution(img, 5);
-//    writeRgbImg("out\\kids_filtered.bmp", img);
-//    deleteRgbImg(img);
-//    deleteRgbImg(filtered);
-//}
-
 void testKernelFilter()
 {
     size_t const kern_sz = 3;
@@ -108,59 +98,6 @@ void testContours()
     writeRgbImg("out\\contours.bmp", contour_img);
     deleteRgbImg(img);
     deleteRgbImg(contour_img);
-}
-//void rotate_matrix() {
-//    const int n = 2;
-//    const int m = 3;
-//    int arr[n][m] = {
-//            1,0,2,
-//            3,4,5
-//    };
-//    int subarr[m][n] {
-//        0,0,
-//        0,0,
-//        0,0
-//    };
-//    for (int i = n - 1; i >= 0; --j) {
-//        for (int j = 0; j <= m; ++j) {
-//            subarr[m - i - 1][j] = arr[i][j];
-//        }
-//    }
-//    for (int i = 0; i < m; ++i) {
-//        for (int j = 0; j < n; ++j) {
-//            std::cout << subarr[i][j] << ' ';
-//        }
-//        std::cout << '\n';
-//    }
-//}
-void filt() {
-    int const rows = 2, cols = 4;
-    int arr[rows][cols] = {
-            1,2,3,4,
-            5,6,7,8
-    };
-    int arr_out[cols][rows] = {
-            0,0,
-            0,0,
-            0,0,
-            0,0
-    };
-    for (int i = 0; i < rows; ++i) {
-        for (int j = 0; j < cols; ++j)
-            std::cout << arr[i][j] << ' ';
-        std::cout << '\n';
-    }
-    for (int i = 0; i < rows; ++i) {
-        for (int j = cols - 1; j >= 0; --j) {
-            arr_out[cols - 1 - j][i] = arr[i][j];
-        }
-    }
-    std::cout << '\n';
-    for (int i = 0; i < cols; ++i) {
-        for (int j = 0; j < rows; ++j)
-            std::cout << arr_out[i][j] << ' ';
-        std::cout << '\n';
-    }
 }
 void rotate(const char* path,const int angle) {
     RgbImg img = readRgbImg(path);
@@ -239,27 +176,6 @@ void increase_sharpness(const char* path) {
     writeRgbImg("inc_sharp.bmp",filtered);
     deleteRgbImg(img);
     deleteRgbImg(filtered);
-//    for (int i = 2; i < img.height - 2; ++i) {
-//        for (int j = 2; j < img.width - 2; ++j) {
-//            int total_g = 0;
-//            int total_b = 0;
-//            int total_r = 0;
-//            for (int k = 0; k < 5; ++k) {
-//                for (int z = 0; z < 5; ++z) {
-//                    size_t const res_row = i + k - 2;
-//                    size_t const res_col = j + z - 2;
-//                    RGB const& pixel = img.pixels[res_row][res_col];
-//                    total_b += pixel.Blue;
-//                    total_g += pixel.Green;
-//                    total_r += pixel.Red;
-//                }
-//            }
-//            img.pixels[i][j].Red = total_r / 9;
-//            img.pixels[i][j].Blue = total_b / 9;
-//            img.pixels[i][j].Green = total_g / 9;
-//        }
-//    }
-}
 void insertionSort(int arrayPtr[], int length)
 {
     int temp, item;
@@ -310,16 +226,13 @@ void median_filter(const char* path, int kernel_size) {
 
 
 int main() {
-    //median_filter("kidsnoise_s.bmp",3);
-    //prep_for_conv("cb_warm.bmp","cb_warm_out.bmp");
-    //rotate("cb_warm.bmp",90);
-    //filt();
+    median_filter("kidsnoise_s.bmp",3);
+    rotate("cb_warm.bmp",90);
     pre_conv("kidsnoise_s.bmp");
     increase_sharpness("pre_filtered_img.bmp");
-    //rotate_matrix();
     //grey_effect("cb_warm.bmp");
     //rotate("cb_warm.bmp",90);
-    //rainbow();
+    rainbow();
 //    try
 //    {
 //        testContours();
