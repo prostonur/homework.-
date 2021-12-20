@@ -1,0 +1,20 @@
+#include <string>
+
+std::string number_to_string(int num) {
+  std::string str = "";
+  std::string sign = num > 0 ? " " : "-";
+  num = std::abs(num);
+  int deg = 1;
+  int temp_num = num;
+  while ((temp_num /= 10) != 0)
+    deg *= 10;
+  while (deg) {
+    str += std::to_string(num / deg);
+    num %= deg;
+    deg /= 10;
+  }
+  if (sign == " ")
+    return str;
+  else 
+    return sign + str;
+}
