@@ -14,4 +14,5 @@ int main() {
     print_matrix(reverse, size, size);
     delete_matrix(matrix, size, size);
     delete_matrix(reverse, size, size);
+}
 
