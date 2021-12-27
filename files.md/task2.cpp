@@ -4,8 +4,8 @@
  
 int file2hex() { 
  setlocale(LC_ALL, "rus"); 
- const char * path_in = "C:/My_Projects_C++/spbu_projects_cpp/in.txt"; 
- const char * path_out = "C:/My_Projects_C++/spbu_projects_cpp/out.txt"; 
+ const char * path_in = "in.txt"; 
+ const char * path_out = "out.txt"; 
  std::ifstream in(path_in,std::ios::binary); 
  if (!in.is_open()) 
  { 
