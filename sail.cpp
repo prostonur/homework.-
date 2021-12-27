@@ -23,7 +23,7 @@ int main() {
     std::cout << "enter x, y: ";
     std::cin >> x >> y;
     if (first_quarter(x, y) or second_quarter(x, y) or third_quarter(x, y) or fourth_quarter(x, y))
-        std::cout << "est' probitie!!!\n";
+        std::cout << "In the figure!!!\n";
     else
-        std::cout << "nope\n";
+        std::cout << "Out of the figure\n";
 }
