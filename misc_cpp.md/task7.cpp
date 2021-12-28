@@ -2,7 +2,7 @@
  
 int main() { 
  double R; 
- std::cin » R; 
+ std::cin >> R; 
  long long int count1 = 0; 
  for (int x = 0; x <= 2 * R; ++x) { 
  for (int y = 0; y <= 2 * R; ++y) { 
@@ -10,6 +10,6 @@ int main() {
  count1++; 
  } 
  } 
- std::cout « "Number of dots: " « count1 « '\n'; 
+ std::cout << "Number of dots: " << count1 << '\n'; 
  return 0; 
 }
