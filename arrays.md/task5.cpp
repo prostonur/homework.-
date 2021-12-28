@@ -9,7 +9,7 @@ int main() {
     std::cout << "enter elements of array: ";
     for (int i = 0; i < n; ++i)
         std::cin >> array[i];
-    int max_sum = INT_MIN;
+    int max_sum = array[0];
     int first_max, second_max;
     for (int i = 0; i < n - 1; ++i) {
         if (array[i] + array[i + 1] > max_sum) {
